@@ -1140,16 +1140,10 @@ for i in range(1000):
     phase = phase_temp2[4:8]
     phase2_temp2 = Y2[i]
     phase22 = phase2_temp2[4:8]
-    # print(phase,phase2)
     if((np.sign(phase)==np.sign(phase22)).all()):
-        # print(phase,phase2)
-        # if(phase_temp2[3]<0.75):
         if(phase_temp2[2]<0.75) and (phase_temp2[6]<0.6*math.pi):
             temppp.append(i)
-        # print(i)
 
-# print(data_label2[34000:34010])
-# print(Y2[0:10])
 # paint modal_weights and phase_values
 print(np.max(np.angle(orignal_data[0])))
 fig = plt.figure(figsize=(50,40))
@@ -1173,19 +1167,6 @@ ax16 = plt.subplot(gs[4:6,0:2])
 ax17 = plt.subplot(gs[4:6,2:4])
 ax18 = plt.subplot(gs[4:6,4:6])
 ax = np.array([ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9,ax10,ax11,ax12])
-# for jianbing modal(4 modal)
-# x1 = to_one(np.abs(orignal_data[temppp[110]]))
-# x2 = to_one(np.abs(restore_data[temppp[110]]))
-# x3 = np.angle(orignal_data[temppp[110]])
-# x4 = np.angle(restore_data[temppp[110]])
-# x5 = to_one(np.abs(orignal_data[temppp[61]]))
-# x6 = to_one(np.abs(restore_data[temppp[61]]))
-# x7 = np.angle(orignal_data[temppp[61]])
-# x8 = np.angle(restore_data[temppp[61]])
-# x9 = to_one(np.abs(orignal_data[temppp[64]]))
-# x10 = to_one(np.abs(restore_data[temppp[64]]))
-# x11 = np.angle(orignal_data[temppp[64]])
-# x12 = np.angle(restore_data[temppp[64]])
 
 x1 = to_one(np.abs(orignal_data[temppp[0]]))
 x2 = to_one(np.abs(restore_data[temppp[0]]))
@@ -1258,12 +1239,6 @@ clb = plt.colorbar(im, ticks = [-math.pi, 0.0, math.pi])
 clb.set_ticklabels([r'$-\pi$',0,r'$\pi$'], fontsize = 52)
 plt.tight_layout()
 # # zhu zhuang tu
-# actual_1 = data_label2[34000+temppp[110]][0:4]
-# actual_2 = data_label2[34000+temppp[61]][0:4]
-# actual_3 = data_label2[34000+temppp[64]][0:4]
-# actual_4 = data_label2[34000+temppp[110]][4:8]
-# actual_5 = data_label2[34000+temppp[61]][4:8]
-# actual_6 = data_label2[34000+temppp[64]][4:8]
 
 actual_1 = data_label2[34000+temppp[0]][0:4]
 actual_2 = data_label2[34000+temppp[5]][0:4]
@@ -1272,53 +1247,14 @@ actual_4 = data_label2[34000+temppp[0]][4:8]
 actual_5 = data_label2[34000+temppp[5]][4:8]
 actual_6 = data_label2[34000+temppp[3]][4:8]
 
-# actual_11 = data_label2[34000+temppp[60]][0:4]
-# actual_22 = data_label2[34000+temppp[61]][0:4]
-# actual_33 = data_label2[34000+temppp[62]][0:4]
-# actual_111 = data_label2[34000+temppp[63]][0:4]
-# actual_222 = data_label2[34000+temppp[64]][0:4]
-# actual_333 = data_label2[34000+temppp[65]][0:4]
-# actual_44 = data_label2[34000+temppp[60]][4:8]
-# actual_55 = data_label2[34000+temppp[61]][4:8]
-# actual_66 = data_label2[34000+temppp[62]][4:8]
-# actual_444 = data_label2[34000+temppp[63]][4:8]
-# actual_555 = data_label2[34000+temppp[64]][4:8]
-# actual_666 = data_label2[34000+temppp[65]][4:8]
-
 actual_value = np.array([actual_1, actual_2, actual_3, actual_4, actual_5, actual_6])
 # # zhu zhuang tu
-# predicted_1 = Y2[temppp[110]][0:4]
-# predicted_2 = Y2[temppp[61]][0:4]
-# predicted_3 = Y2[temppp[64]][0:4]
-# predicted_4 = Y2[temppp[110]][4:8]
-# predicted_5 = Y2[temppp[61]][4:8]
-# predicted_6 = Y2[temppp[64]][4:8]
-
-
 predicted_1 = Y2[temppp[0]][0:4]
 predicted_2 = Y2[temppp[5]][0:4]
 predicted_3 = Y2[temppp[3]][0:4]
 predicted_4 = Y2[temppp[0]][4:8]
 predicted_5 = Y2[temppp[5]][4:8]
 predicted_6 = Y2[temppp[3]][4:8]
-# # predicted_11 = Y2[temppp[60]][0:4]
-# # predicted_22 = Y2[temppp[61]][0:4]
-# # predicted_33 = Y2[temppp[62]][0:4]
-# # predicted_111 = Y2[temppp[63]][0:4]
-# # predicted_222 = Y2[temppp[64]][0:4]
-# # predicted_333 = Y2[temppp[65]][0:4]
-# # predicted_44 = Y2[temppp[60]][4:8]
-# # predicted_55 = Y2[temppp[61]][4:8]
-# # predicted_66 = Y2[temppp[62]][4:8]
-# # predicted_444 = Y2[temppp[63]][4:8]
-# # predicted_555 = Y2[temppp[64]][4:8]
-# # predicted_666 = Y2[temppp[65]][4:8]
-# # print(np.abs(actual_11-predicted_11), np.abs(actual_44-predicted_44))
-# # print(np.abs(actual_22-predicted_22), np.abs(actual_55-predicted_55))
-# # print(np.abs(actual_33-predicted_33), np.abs(actual_66-predicted_66))
-# # print(np.abs(actual_111-predicted_111), np.abs(actual_444-predicted_444))
-# # print(np.abs(actual_222-predicted_222), np.abs(actual_555-predicted_555))
-# # print(np.abs(actual_333-predicted_333), np.abs(actual_666-predicted_666))
 
 predicted_value = np.array([predicted_1, predicted_2, predicted_3, predicted_4, predicted_5, predicted_6])
 X1 = np.arange(4)
@@ -1391,62 +1327,33 @@ plt.savefig('/tf/lijianjun/桌面/test/mode5/TM01/cor_result_2.svg')
 
 corr_temp = []
 for i in range(1000):
-    # print(i, np.round(corr2(np.abs(restore_data[i])**2, np.abs(orignal_data[i])**2), 4))
-    # For Two modal
-#   if((np.round(corr2(np.abs(restore_data[i])**2, np.abs(orignal_data[i])**2), 4)<0.9983) & (np.round(corr2(np.abs(restore_data[i])**2, np.abs(orignal_data[i])**2), 4)>0.985)):
-#       corr_temp.append(i)
-    #For three modal
     if((np.round(corr2(np.abs(restore_data[i])**2, np.abs(orignal_data[i])**2), 4)<(cor_result+0.002)) & (np.round(corr2(np.abs(restore_data[i])**2, np.abs(orignal_data[i])**2), 4)>(cor_result-0.005))):
       corr_temp.append(i)
-# print(corr_temp)
+
 fig, ax = plt.subplots(3, 6)
 ax = ax.flatten()
-x1 = to_one(np.abs(orignal_data[corr_temp[0]]))
-x2 = to_one(np.abs(restore_data[corr_temp[0]]))
-x3 = to_one(np.abs(orignal_data[corr_temp[1]]))
-x4 = to_one(np.abs(restore_data[corr_temp[1]]))
-x5 = to_one(np.abs(orignal_data[corr_temp[2]]))
-x6 = to_one(np.abs(restore_data[corr_temp[2]]))
-x7 = to_one(np.abs(orignal_data[corr_temp[3]]))
-x8 = to_one(np.abs(restore_data[corr_temp[3]]))
-x9 = to_one(np.abs(orignal_data[corr_temp[4]]))
-x10 = to_one(np.abs(restore_data[corr_temp[4]]))
-x11 = to_one(np.abs(orignal_data[corr_temp[5]]))
-x12 = to_one(np.abs(restore_data[corr_temp[5]]))
+x1 = to_one(np.abs(orignal_data[corr_temp[0]])**2)
+x2 = to_one(np.abs(restore_data[corr_temp[0]])**2)
+x3 = to_one(np.abs(orignal_data[corr_temp[1]])**2)
+x4 = to_one(np.abs(restore_data[corr_temp[1]])**2)
+x5 = to_one(np.abs(orignal_data[corr_temp[2]])**2)
+x6 = to_one(np.abs(restore_data[corr_temp[2]])**2)
+x7 = to_one(np.abs(orignal_data[corr_temp[3]])**2)
+x8 = to_one(np.abs(restore_data[corr_temp[3]])**2)
+x9 = to_one(np.abs(orignal_data[corr_temp[4]])**2)
+x10 = to_one(np.abs(restore_data[corr_temp[4]])**2)
+x11 = to_one(np.abs(orignal_data[corr_temp[5]])**2)
+x12 = to_one(np.abs(restore_data[corr_temp[5]])**2)
 temp = np.array([x1, x3, x5, x7, x9, x11, x2, x4, x6, x8, x10, x12, np.abs(x1 - x2), np.abs(x3 - x4), np.abs(x5 - x6), np.abs(x7 - x8), np.abs(x9 - x10), np.abs(x11 - x12)])
 
-# x111 = to_one(np.abs(orignal_data[6]))
-# x22 = to_one(np.abs(restore_data[6]))
-# x33 = to_one(np.abs(orignal_data[7]))
-# x44 = to_one(np.abs(restore_data[7]))
-# x55 = to_one(np.abs(orignal_data[8]))
-# x66 = to_one(np.abs(restore_data[8]))
-# x77 = to_one(np.abs(orignal_data[9]))
-# x88 = to_one(np.abs(restore_data[9]))
-# x99 = to_one(np.abs(orignal_data[10]))
-# x1010 = to_one(np.abs(restore_data[10]))
-# x1111 = to_one(np.abs(orignal_data[11]))
-# x1212 = to_one(np.abs(restore_data[11]))
-# temp2 = np.array([x11, x33, x55, x77, x99, x1111, x22, x44, x66, x88, x1010, x1212, np.abs(x11 - x22), np.abs(x33 - x44), np.abs(x55 - x66), np.abs(x77 - x88), np.abs(x99 - x1010), np.abs(x1111 - x1212)])
 norm = matplotlib.colors.Normalize(vmin = 0.0, vmax = 1.0)
-print(np.mean(np.abs(x1 - x2)), np.max(np.abs(x1 - x2)))
-print(np.mean(np.abs(x3 - x4)), np.max(np.abs(x3 - x4)))
-print(np.mean(np.abs(x5 - x6)), np.max(np.abs(x5 - x6)))
-print(np.mean(np.abs(x7 - x8)), np.max(np.abs(x7 - x8)))
-print(np.mean(np.abs(x9 - x10)), np.max(np.abs(x9 - x10)))
-print(np.mean(np.abs(x11 - x12)), np.max(np.abs(x11 - x12)))
 cmap = plt.cm.jet
 for i in range(18):
     img = temp[i]
     im = ax[i].imshow(img, norm = norm, cmap = cmap)
     ax[i].set_xticks([])
     ax[i].set_yticks([])
-# ax[12].set_xlabel(np.round(np.max(np.abs(x1 - x2)),2))
-# ax[13].set_xlabel(np.round(np.max(np.abs(x3 - x4)),2))
-# ax[14].set_xlabel(np.round(np.max(np.abs(x5 - x6)),2))
-# ax[15].set_xlabel(np.round(np.max(np.abs(x7 - x8)),2))
-# ax[16].set_xlabel(np.round(np.max(np.abs(x9 - x10)),2))
-# ax[17].set_xlabel(np.round(np.max(np.abs(x11 - x12)),2))
+
 ax[0].text(-105,80,'Actual',fontsize=10)
 ax[0].text(-55,30,'(a)',fontsize=10)
 ax[6].text(-228,80,'Reconstructed',fontsize=10)
