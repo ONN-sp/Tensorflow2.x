@@ -502,8 +502,8 @@ def get_data(folder):  # folder是根目录文件夹
         img = scipy.io.loadmat(folder + file)
         data_values1 = img['E'].reshape(128, 128, 1)  # 将读取的权重和旋转角度转换为一维数组
         data_label = np.array(img['mode_coef'].reshape(8, ))
-        abs_temp = np.abs(data_values1)
-        angle_temp = np.angle(data_values1)
+        abs_temp = np.abs(data_values1)**2 # 光场强度
+        angle_temp = np.angle(data_values1) # 光场相位
         data = tf.concat([abs_temp, angle_temp], axis = 2)
         # anglelabel_temp = data_label[2:4]
         # anglelabel_temp = data_label[3:6]
